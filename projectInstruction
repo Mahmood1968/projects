@@ -1,0 +1,44 @@
+
+
+This project has two components:
+
+I- Develop an interface where the two images can be loaded and displayed one
+   next to the other.
+   You should propose to the user the following:
+
+   1) Matching without epipolar geometry: when the operator clicks on a pixel
+      in the left image, the  program should find the corresponding pixel 
+      with the highest correlation score, using ZNCC function. 
+      The user should be able either to accept the match or to discard it, if
+      it does not look acceptable. 
+
+   2) Calculation of the fundamental matrix F: Once at least 8 pixels have
+      been matched(a few more would be better), the user should be able to
+      calculate F.
+
+   3) Matching using the epipolar geometry: Assuming that F has been 
+      Calculated, when the user clicks on a particular pixel in the left
+      Image, your program should display the corresponding epipolar line
+      in the right image and find the corresponding pixel with the highest
+      Correlation score, when using ZNCC function.
+
+II- Develop a program with no interface that takes as inputs two images and 
+    the fundamental matrix then perform dense matching. The result of the 
+    dense matching is stored in a file as a disparity map. The disparity 
+    map should be a grey-scale image of PGM(P2 or P5) format. You matching
+    method should use both the epipolar and the continuity constraints. The 
+    later should used as follows: if the previous 5 consecutive pixels had
+    similar disparity, it can used for the current pixel as a good guess. 
+
+
+Inputs:
+
+
+
+
+•	first image in JPEG format, grey level 
+•	second image in JPEG format, grey level 
+•	first image in pgm format, grey level 
+•	second image in pgm format, grey level 
+PGM format is a very simple text format where, a grey-scale image is stored as a 2D array of integers(0..255). You can look inside the file(as it is a text file) to understand what it is. In particular, P2 and 255 can be ignored as they are simply codes. You have the resolution(number of columns and lines) followed 
+
